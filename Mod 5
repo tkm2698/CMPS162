@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 5 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+
+<script>
+
+console.log("Events");
+
+// 1. Link click event (alert hello)
+function sayHello() {
+  alert("Hello!");
+}
+
+
+console.log("Input Fields");
+
+// 1. change background color on focus/blur + alert on blur
+function focusRed(x) {
+  x.style.backgroundColor = "red";
+}
+
+function focusWhite(x) {
+  x.style.backgroundColor = "white";
+  alert(x.value);
+}
+
+
+console.log("Paragraphs");
+
+// 1. change paragraph text
+function changeText() {
+  document.getElementById("para").innerHTML = "Goodbye World!";
+}
+
+
+console.log("Images");
+
+// 1. hide image on click
+function hideImage(x) {
+  x.style.display = "none";
+}
+
+
+console.log("Styles");
+
+// 1. swap colors
+function swapColors() {
+  var div1 = document.getElementById("div1");
+  var div2 = document.getElementById("div2");
+
+  var temp = div1.style.backgroundColor;
+  div1.style.backgroundColor = div2.style.backgroundColor;
+  div2.style.backgroundColor = temp;
+}
+
+</script>
+</head>
+
+<body>
+See console!<br><br>
+
+<!-- Events -->
+<a href="#" onclick="sayHello()">Click here for a greeting!</a>
+
+<br><br>
+
+<!-- Input Fields -->
+<input type="text"
+       onfocus="focusRed(this)"
+       onblur="focusWhite(this)">
+
+<br><br>
+
+<!-- Paragraphs -->
+<p id="para" onclick="changeText()">Hello World!</p>
+
+<!-- Images -->
+<br>
+<img src="https://via.placeholder.com/150"
+     onclick="hideImage(this)">
+
+<br><br>
+
+<!-- Styles -->
+<div id="div1"
+     style="background-color:yellow;"
+     onclick="swapColors();">
+  Hello
+</div>
+
+<div id="div2"
+     style="background-color:green;"
+     onclick="swapColors();">
+  World
+</div>
+
+</body>
+</html>
