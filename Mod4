@@ -1,0 +1,130 @@
+
+<meta charset="utf-8">
+<title>CMPS 162: Module 4 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+
+<script>
+
+console.log("Functions");
+
+// 1. greet
+function greet() {
+  console.log("Hello");
+}
+greet();
+
+// 2. sumAndPrint
+function sumAndPrint(a, b) {
+  console.log(a + b);
+}
+sumAndPrint(2, 3);
+
+// 3. sum
+function sum(a, b) {
+  return a + b;
+}
+console.log(sum(4, 5));
+
+// 4. findSmallest
+function findSmallest(arr) {
+  var min = arr[0];
+
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+
+  return min;
+}
+
+console.log(findSmallest([23, 54, 3, 6, 4, 46]));
+
+// 5. everySecondElement
+function everySecondElement(arr) {
+  var result = [];
+
+  for (var i = 1; i < arr.length; i += 2) {
+    result.push(arr[i]);
+  }
+
+  return result;
+}
+
+console.log(everySecondElement([1, 2, 3, 4, 5, 6]));
+
+
+//--------//
+// Switch //
+//--------//
+console.log("Switch");
+
+var date = new Date();
+var month = date.getMonth();
+var monthText;
+
+switch (month) {
+  case 0: monthText = "January"; break;
+  case 1: monthText = "February"; break;
+  case 2: monthText = "March"; break;
+  case 3: monthText = "April"; break;
+  case 4: monthText = "May"; break;
+  case 5: monthText = "June"; break;
+  case 6: monthText = "July"; break;
+  case 7: monthText = "August"; break;
+  case 8: monthText = "September"; break;
+  case 9: monthText = "October"; break;
+  case 10: monthText = "November"; break;
+  case 11: monthText = "December"; break;
+}
+
+console.log(monthText);
+
+
+//-------//
+// While //
+//-------//
+console.log("While");
+
+function factorial_while(n) {
+  var total = 1;
+  var i = 1;
+
+  while (i <= n) {
+    total = total * i;
+    i++;
+  }
+
+  return total;
+}
+
+console.log(factorial_while(5));
+
+
+//----------//
+// Do-While //
+//----------//
+console.log("Do-While");
+
+function factorial_do_while(n) {
+  var total = 1;
+  var i = 1;
+
+  do {
+    total = total * i;
+    i++;
+  } while (i <= n);
+
+  return total;
+}
+
+console.log(factorial_do_while(5));
+
+</script>
+
+</head>
+
+<body>
+See console!
+</body>
+</html>
