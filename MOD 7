@@ -1,0 +1,75 @@
+<title>CMPS 162: Module 7 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+
+<script>
+
+console.log("Browser Version");
+
+// 1. Browser version
+console.log(navigator.userAgent);
+document.body.innerHTML += "<br>Browser: " + navigator.userAgent;
+
+
+//-----------------//
+// Windows //
+//-----------------//
+console.log("Windows");
+
+let win;
+
+// open simple window 500x500
+function openWin() {
+  win = window.open("", "", "width=500,height=500");
+  win.document.write("Hello window");
+}
+
+// close window
+function closeWin() {
+  if (win) {
+    win.close();
+  }
+}
+
+// custom window
+function openCustomWin() {
+  window.open("", "", "toolbar=yes,location=yes,menubar=no,scrollbars=no,resizable=no,width=400,height=400");
+}
+
+
+//-----------------//
+// History //
+//-----------------//
+console.log("History");
+
+// show history length
+console.log(history.length);
+document.body.innerHTML += "<br>History length: " + history.length;
+
+
+//-----------------//
+// Cookies //
+//-----------------//
+console.log("Cookies");
+
+// check cookies
+console.log(navigator.cookieEnabled);
+document.body.innerHTML += "<br>Cookies enabled: " + navigator.cookieEnabled;
+
+// set cookie
+document.cookie = "user=student";
+
+// show cookie
+console.log(document.cookie);
+document.body.innerHTML += "<br>Cookie: " + document.cookie;
+
+</script>
+</head>
+
+<body>
+
+<button onclick="openWin()">Open 500 Window</button>
+<button onclick="closeWin()">Close Window</button>
+<button onclick="openCustomWin()">Custom Window</button>
+
+</body>
+</html>
