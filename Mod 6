@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 6 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+
+<script>
+
+//---------------------------//
+// The Document Object Model //
+//---------------------------//
+console.log("The Document Object Model");
+
+window.onload = function () {
+  document.getElementById("fahrenheit")
+    .addEventListener("blur", fahrenheitToCelsius);
+
+  document.getElementById("celsius")
+    .addEventListener("blur", celsiusToFahrenheit);
+};
+
+// Fahrenheit → Celsius
+function fahrenheitToCelsius() {
+  let f = parseFloat(document.getElementById("fahrenheit").value);
+
+  if (isNaN(f)) return;
+
+  let c = (f - 32) * 5 / 9;
+
+  document.getElementById("celsius").value = c.toFixed(1);
+}
+
+// Celsius → Fahrenheit
+function celsiusToFahrenheit() {
+  let c = parseFloat(document.getElementById("celsius").value);
+
+  if (isNaN(c)) return;
+
+  let f = (c * 9 / 5) + 32;
+
+  document.getElementById("fahrenheit").value = f.toFixed(1);
+}
+
+// Count DOM elements in body
+function countDOMElements() {
+  return document.body.getElementsByTagName("*").length;
+}
+
+// Count text nodes in body
+function countTextNodes(node = document.body) {
+  let count = 0;
+
+  for (let child of node.childNodes) {
+    if (child.nodeType === Node.TEXT_NODE && child.textContent.trim() !== "") {
+      count++;
+    } else if (child.nodeType === Node.ELEMENT_NODE) {
+      count += countTextNodes(child);
+    }
+  }
+
+  return count;
+}
+
+console.log("DOM elements:", countDOMElements());
+console.log("Text nodes:", countTextNodes());
+
+</script>
+</head>
+
+<body>
+  See console!<br><br>
+
+  <input type="text" id="fahrenheit"> - enter fahrenheit<br>
+  or<br>
+  <input type="text" id="celsius"> - enter celsius<br>
+</body>
+</html>
