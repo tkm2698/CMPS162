@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 8 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+//-----------------//
+// Form Validation //
+//-----------------//
+console.log("Form Validation");
+
+function validateSSN() {
+  const ssn = document.getElementById("SSNField").value;
+  const statusDiv = document.getElementById("statusDiv");
+
+  try {
+    // check length
+    if (ssn.length !== 11) {
+      throw "SSN must be 11 characters long (XXX-XX-XXXX).";
+    }
+
+    // check dash positions
+    if (ssn[3] !== '-' || ssn[6] !== '-') {
+      throw "Dashes must be in the 4th and 7th positions.";
+    }
+
+    // check numbers
+    for (let i = 0; i < ssn.length; i++) {
+      if (i === 3 || i === 6) continue; // skip dashes
+      if (isNaN(ssn[i])) {
+        throw "SSN should only have numbers (besides dashes).";
+      }
+    }
+
+    statusDiv.innerHTML = "Valid SSN!";
+  } catch (error) {
+    statusDiv.innerHTML = "Invalid SSN: " + error;
+  }
+}
+
+
+
+//------------//
+// Exceptions //
+//------------//
+console.log("Exceptions");
+
+// I used try/catch above so instead of just returning messages,
+// I throw errors when something is wrong. Then catch displays it.
+
+
+
+//----------------//
+// More On Events //
+//----------------//
+console.log("More On Events");
+
+window.onload = function() {
+  const field = document.getElementById("SSNField");
+
+  field.onfocus = function() {
+    field.style.backgroundColor = "lightyellow";
+  };
+
+  field.onblur = function() {
+    field.style.backgroundColor = "white";
+  };
+};
+
+</script>
+</head>
+<body>
+  See console!<br><br>
+  <input type="text" id="SSNField">
+  <input type="button" value="Check" onclick="validateSSN();">
+  <br><br>
+  <div id="statusDiv">
+    Please enter an SSN and press Check!
+  </div>
+</body>
+</html>
