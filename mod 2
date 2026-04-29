@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 2 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+
+<script>
+
+//-----------//
+// Prompts //
+//-----------//
+
+// 1. Ask for name
+var name = prompt("Enter your name:");
+
+// 2. Print to console
+console.log("Name:", name);
+
+// 3. Check if name is empty or null
+if (name == null || name == "") {
+  console.log("No name entered. Please try again.");
+} else {
+  console.log("Welcome " + name);
+}
+
+
+
+//------------------------//
+// Concatenate Strings //
+//------------------------//
+
+console.log("Values");
+
+// 1. Concatenate strings
+var result1 = "23" + " Michael Jordan";
+console.log(result1);
+
+// 2. Prompt and concatenate
+var userName = prompt("Enter your name:");
+var greeting = "Hello " + userName;
+console.log(greeting);
+
+
+
+//----------------------------------------------//
+// COMPARISON OPERATORS + CONDITIONALS //
+//----------------------------------------------//
+
+console.log("Comparison Operators");
+
+// 1. Check if xyz equals 45
+var xyz = 45;
+
+if (xyz == 45) {
+  console.log("xyz equals 45");
+}
+
+// 2. Compare start and end
+var start = 500;
+var end = 400;
+
+if (start > end) {
+  console.log("Start is greater than end");
+} else if (end > start) {
+  console.log("End is greater than start");
+}
+
+// 3. Prompt score and compare
+var scoreInput = prompt("Enter a score:");
+
+if (45 >= scoreInput) {
+  console.log("45 is greater or equal to your score");
+} else {
+  console.log("Your score is greater than 45");
+}
+
+
+
+//----------------//
+// ARRAYS //
+//----------------//
+
+console.log("Arrays");
+
+// 1. Array of places
+var places = ["Paris", "Tokyo", "New York", "London", "Rome"];
+
+// 2. Output array
+console.log("Places:", places);
+
+// 3. pop function
+places.pop();
+console.log("After pop:", places);
+
+// 4. shift function
+places.shift();
+console.log("After shift:", places);
+
+
+
+//--------------------------------//
+// FINAL REQUIRED WEBSITE TASK //
+//--------------------------------//
+
+var favorite = prompt("Enter your favorite sport, movie, or TV show:");
+console.log('Your favorite sport, movie and/or TV show is "' + favorite + '"');
+
+</script>
+</head>
+
+<body>
+  See console!
+</body>
+</html>
