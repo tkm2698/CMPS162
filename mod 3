@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 3 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+//---------//
+// Strings //
+//---------//
+console.log("Strings");
+
+var countries = ["AustraliA", "greece", "PERU", "ChInA"];
+
+// 1. Fix formatting (First letter uppercase, rest lowercase)
+for (let i = 0; i < countries.length; i++) {
+  let c = countries[i];
+  countries[i] = c.charAt(0).toUpperCase() + c.slice(1).toLowerCase();
+}
+console.log("Formatted countries:", countries);
+
+// 2. Get 2nd and 3rd letters and combine
+let combined = "";
+for (let i = 0; i < countries.length; i++) {
+  combined += countries[i].slice(1, 3);
+}
+console.log("Combined letters:", combined);
+
+// 3. Replace 'dart' with 'arrow' using indexOf and slice
+var sentence = "Time flies like an dart; fruit flies like a banana.";
+let index = sentence.indexOf("dart");
+let newSentence = sentence.slice(0, index) + "arrow" + sentence.slice(index + 4);
+console.log("Updated sentence:", newSentence);
+
+// 4. Last occurrence of "flies"
+let lastIndex = sentence.lastIndexOf("flies");
+console.log("Last index of 'flies':", lastIndex);
+
+// 5. Reverse a user string
+let userString = prompt("Enter a string:");
+let reversed = "";
+for (let i = userString.length - 1; i >= 0; i--) {
+  reversed += userString[i];
+}
+alert("Reversed: " + reversed);
+
+
+
+//---------//
+// Numbers //
+//---------//
+console.log("Numbers");
+
+var value = 13.3;
+
+// 1. Normal rounding
+console.log("Rounded:", Math.round(value));
+
+// 2. Round up
+console.log("Rounded up:", Math.ceil(value));
+
+// 3. Round down
+console.log("Rounded down:", Math.floor(value));
+
+// 4. Coin flip
+let coin = Math.random();
+if (coin < 0.5) {
+  console.log("Heads");
+} else {
+  console.log("Tails");
+}
+
+
+
+//-------//
+// Dates //
+//-------//
+console.log("Dates");
+
+// 1. Ask age and calculate birth year
+let age = prompt("Enter your age:");
+let currentYear = new Date().getFullYear();
+let birthYear = currentYear - age;
+alert("You were born in: " + birthYear);
+
+// 2. Calculate age in days
+let year = prompt("Enter your birth year:");
+let month = prompt("Enter your birth month (1-12):");
+let day = prompt("Enter your birth day:");
+
+let birthDate = new Date(year, month - 1, day);
+let today = new Date();
+
+let diffTime = today - birthDate;
+let diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+alert("You are about " + diffDays + " days old.");
+
+</script>
+</head>
+<body>
+  See console!
+</body>
+</html>
